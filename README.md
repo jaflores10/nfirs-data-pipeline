@@ -26,13 +26,13 @@ The modules below are organized to maintain clear separation of ELT processes.
 ### Data Ingestion
 Handles the extraction and loading of NFIRS data linked above.
 
-[Python Data Extraction Scripts](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/python_scripts)
+[Python data extraction scripts](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/python_scripts).
 
 ### DuckDB Data Warehouse Details
-The DuckDB data warehouse contains the below four schemas and relevant tables (tables in nfirs_transformed, nfirs_processed, and nfirs_analysis created via dbt):
+The DuckDB data warehouse contains the below four schemas and relevant tables (tables in nfirs_transformed, nfirs_processed, and nfirs_analysis are created via dbt):
 
 #### Schema: nfirs_raw
-nfirs_raw contains the raw data obtained from the NFIRS website for all 19 datasets (flat files, '.txt'). Please note, all column data types for every table in nfirs_raw are VARCHAR.
+nfirs_raw contains the raw data obtained from the NFIRS website for all 19 datasets (flat files, '.txt' format). Please note, all column data types for every table in nfirs_raw are VARCHAR.
 
 Tables:
 - nfirs_arson
@@ -50,7 +50,7 @@ Tables:
 - etc.
 
 #### Schema: nfirs_processed
-nfirs_processed contains four tables which maybe used to further analyze fire incident at a high level, aid given during an incident, casualties during an incident, relevant code descriptions for incidents, and wildfire details. The naming format for this schema is 'nfirs_processed__incidents_.'
+nfirs_processed contains four tables which maybe used to further analyze fire incidents, aid given during an incident, casualties during an incident, relevant code descriptions for incidents, and wildfire details. The naming format for this schema is 'nfirs_processed__incidents_.'
 
 Tables:
 - nfirs_processed__incidents
