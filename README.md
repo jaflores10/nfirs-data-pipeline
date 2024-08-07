@@ -20,8 +20,16 @@ NFIRS data may be obtained [here](https://www.fema.gov/about/openfema/data-sets/
 Below is the relation diagram of NFIRS data. (Image courtesy of NFIRS):
 ![Relation Diagram](https://github.com/jaflores10/nfirs-data-pipeline/blob/main/nfirs_relation_diagram.JPG)
 
+## 💠 Modules
+The modules below are organized to maintain clear separation of ELT processes.
+
+### Data Ingestion
+Handles the extraction and loading of NFIRS data from the link above.
+
+[Python Data Extraction Scripts](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/python_scripts)
+
 ## 🏘️ Data Warehouse Details
-The DuckDB data warehouse contains the below four schemas and relevant tables:
+The DuckDB data warehouse contains the below four schemas and relevant tables (tables in nfirs_transformed, nfirs_processed, and nfirs_analysis created via dbt):
 
 ### Schema: nfirs_raw
 nfirs_raw contains the raw data obtained from the NFIRS website for all 19 datasets (flat files, '.txt'). Please note, all column data types for every table in nfirs_raw are VARCHAR.
@@ -43,9 +51,20 @@ Tables:
 
 ### Schema: nfirs_processed
 nfirs_processed contains four tables which maybe used to further analyze fire incident at a high level, aid given during an incident, casualties during an incident, relevant code descriptions for incidents, and wildfire details. The naming format for this schema is 'nfirs_processed__incidents_.'
+
 Tables:
 - nfirs_processed__incidents
 - nfirs_processed__incidents_aid_casualty
 - nfirs_processed__incidents_codelookup
 - nfirs_processed__incidents_wildlands
+
+### Schema: nfirs_analysis
+nfirs_analysis contains three tables derived from the tables in nfirs_processed. These tables serve as the data sources for analysis and visualization in Tableau. The naming format for this schema is 'nfirs_analysis__.'
+
+Tables:
+- nfirs_analysis__code_count_analysis
+- nfirs_analysis__muni_incidents_analysis
+- nfirs_analysis__wildlands_ca_analysis
+
+## dbt Models
 
