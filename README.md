@@ -2,12 +2,12 @@
 ## :clipboard: Overview
 The primary goal of the National fire Incident Reporting System (NFIRS) data pipeline and analysis project is to design extract, load, transform (ELT) processes using an open-source modern data stack and provide a brief analysis on fire incidents through the U.S. in 2022. The project uses the following tools/technologies for data ingestion, warehousing, transformation, visualization, and orchestration:
 - Data ingestion
-  - Python scripts
+  - Python scripts ✒️
 - Data warehouse
-  - DuckDB
+  - DuckDB 🦆
 - Data transformation
-  - dbt :dbt:
+  - dbt ♻️
 - Data Visualization
-  - Tableau
+  - Tableau 📊
 - Data Orchestration
-    - Dagster
+    - Dagster 🎻
