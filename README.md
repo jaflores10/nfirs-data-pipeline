@@ -18,4 +18,4 @@ NFIRS data may be obtained [here](https://www.fema.gov/about/openfema/data-sets/
 
 ## ⛓️ Relation Diagram
 Below is the relation diagram of the NFIRS data. (Image courtesy of NFIRS):
-![Relation Diagram](path/to/your/relation_diagram.jpg)
+![Relation Diagram](https://github.com/jaflores10/nfirs-data-pipeline/NFIRS Relation Diagram.jpg)
