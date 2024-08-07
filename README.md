@@ -40,3 +40,12 @@ Tables:
 - nfirs_transformed__basicincident
 - nfirs_transformed__fdheader
 - etc.
+
+### Schema: nfirs_processed
+nfirs_processed contains four tables which maybe used to further analyze fire incident at a high level, aid given during an incident, casualties during an incident, relevant code descriptions for incidents, and wildfire details. The naming format for this schema is 'nfirs_processed__incidents_.'
+Tables:
+- nfirs_processed__incidents
+- nfirs_processed__incidents_aid_casualty
+- nfirs_processed__incidents_codelookup
+- nfirs_processed__incidents_wildlands
+
