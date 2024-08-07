@@ -17,7 +17,7 @@ The following tools/technologies are used for data ingestion, warehousing, trans
 NFIRS data may be obtained [here](https://www.fema.gov/about/openfema/data-sets/fema-usfa-nfirs-annual-data).
 
 ## ⛓️ Relation Diagram
-Below is the relation diagram of NFIRS data to understand how each piece of data links together. (Image courtesy of NFIRS):
+Below is the relation diagram of NFIRS data. The diagram allows an individual to understand how datasets link together. (Image courtesy of NFIRS):
 ![Relation Diagram](https://github.com/jaflores10/nfirs-data-pipeline/blob/main/nfirs_relation_diagram.JPG)
 
 ## 💠 Modules
