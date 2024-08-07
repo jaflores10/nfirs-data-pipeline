@@ -17,7 +17,7 @@ The following tools/technologies are used for data ingestion, warehousing, trans
 NFIRS data may be obtained [here](https://www.fema.gov/about/openfema/data-sets/fema-usfa-nfirs-annual-data).
 
 ## ⛓️ Relation Diagram
-Below is the relation diagram of NFIRS data. (Image courtesy of NFIRS):
+Below is the relation diagram of NFIRS data to understand how each piece of data links together. (Image courtesy of NFIRS):
 ![Relation Diagram](https://github.com/jaflores10/nfirs-data-pipeline/blob/main/nfirs_relation_diagram.JPG)
 
 ## 💠 Modules
@@ -28,7 +28,7 @@ Handles the extraction and loading of NFIRS data linked above.
 
 [Python Data Extraction Scripts](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/python_scripts)
 
-### 🏘️ Data Warehouse Details
+### DuckDB Data Warehouse Details
 The DuckDB data warehouse contains the below four schemas and relevant tables (tables in nfirs_transformed, nfirs_processed, and nfirs_analysis created via dbt):
 
 #### Schema: nfirs_raw
@@ -58,7 +58,7 @@ Tables:
 - nfirs_processed__incidents_codelookup
 - nfirs_processed__incidents_wildlands
 
-### Schema: nfirs_analysis
+#### Schema: nfirs_analysis
 nfirs_analysis contains three tables derived from the tables in nfirs_processed. These tables serve as the data sources for analysis and visualization in Tableau. The naming format for this schema is 'nfirs_analysis__.'
 
 Tables:
@@ -66,5 +66,11 @@ Tables:
 - nfirs_analysis__muni_incidents_analysis
 - nfirs_analysis__wildlands_ca_analysis
 
-### ♻️ dbt Models
+### dbt Data Transformations
+
+
+### Tableau Data Visualization
+
+
+### Dagster Data Orchestration
 
