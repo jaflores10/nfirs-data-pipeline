@@ -11,4 +11,5 @@ The primary goal of the NFIRS data pipeline and analysis project is to implement
   - Tableau 📊
 - Data Orchestration
     - Dagster 🎻
-NFIRS data may be obtained [here] (https://www.fema.gov/about/openfema/data-sets/fema-usfa-nfirs-annual-data).
+
+NFIRS data may be obtained [here](https://www.fema.gov/about/openfema/data-sets/fema-usfa-nfirs-annual-data).
