@@ -1,0 +1,122 @@
+version: 2
+
+sources:
+    - name: nfirs_raw # source name dbt uses
+      description: "Schema in the 'nfirs' database where all raw data exists. All fields within each table are VARCHAR."
+      database: nfirs # actual DuckDB database (and schema name) below
+      schema: nfirs_raw
+      tables:
+        - name: arson
+          description: "Arson incident."
+          meta:
+            dagster:
+              asset_key: ['raw_arson'] # This metadata specifies the corresponding Dagster asset for this dbt source.
+              description: "Raw NFIRS arson data."
+        - name: arsonagencyreferal
+          description: "Arson agency referral."
+          meta:
+            dagster:
+              asset_key: ['raw_arsonagencyreferal']
+              description: "Raw NFIRS arson agency referal data."
+        - name: arsonjuvsub
+          description: "Arson juvenile subject."
+          meta:
+            dagster:
+              asset_key: ['raw_arsonjuvsub']
+              description: "Raw NFIRS arson juvenile subject data."
+        - name: basicaid
+          description: "Basic incident aid (given/received)."
+          meta:
+            dagster:
+              asset_key: ['raw_basicaid']
+              description: "Raw NFIRS basic aid data."
+        - name: basicincident
+          description: "Basic incident (primary data file)."
+          meta:
+            dagster:
+              asset_key: ['raw_basicincident']
+              description: "Raw NFIRS basic incident data."
+        - name: civiliancasualty
+          description: "Civilian casualty."
+          meta:
+            dagster:
+              asset_key: ['raw_civiliancasualty']
+              description: "Raw NFIRS civilian casualty data."
+        - name: codelookup
+          description: "Code descriptor lookup."
+          meta:
+            dagster:
+              asset_key: ['raw_codelookup']
+              description: "Raw NFIRS code lookup data."
+        - name: ems
+          description: "Emergency medical service incident."
+          meta:
+            dagster:
+              asset_key: ['raw_ems']
+              description: "Raw NFIRS EMS data."
+        - name: fdheader
+          description: "Fire department information"
+          meta:
+            dagster:
+              asset_key: ['raw_fdheader']
+              description: "Raw NFIRS fire department information data."
+        - name: ffcasualty
+          description: "Firefighter casualty."
+          meta:
+            dagster:
+              asset_key: ['raw_ffcasualty']
+              description: "Raw NFIRS firefighter casualty data."
+        - name: ffequipfail
+          description: "Firefighter equipment failure."
+          meta:
+            dagster:
+              asset_key: ['raw_ffequipfail']
+              description: "Raw NFIRS firefighter equipment failure data."
+        - name: fireincident
+          description: "Fire incident."
+          meta:
+            dagster:
+              asset_key: ['raw_fireincident']
+              description: "Raw NFIRS fire incident data."
+        - name: hazchem
+          description: "Hazardous material chemical involved."
+          meta:
+            dagster:
+              asset_key: ['raw_hazchem']
+              description: "Raw NFIRS hazardous material chemical data."
+        - name: hazmat
+          description: "Hazardous material incident."
+          meta:
+            dagster:
+              asset_key: ['raw_hazmat']
+              description: "Raw NFIRS hazardous material incident data."
+        - name: hazmatequipinvolved
+          description: "Hazardous material equipment involved."
+          meta:
+            dagster:
+              asset_key: ['raw_hazmatequipinvolved']
+              description: "Raw NFIRS involved hazardous material equipment data."
+        - name: hazmobprop
+          description: "Hazardous material mobile property type."
+          meta:
+            dagster:
+              asset_key: ['raw_hazmobprop']
+              description: "Raw NFIRS hazardous material mobile property type data."
+        - name: incidentaddress
+          description: "Basic incident address."
+          meta:
+            dagster:
+              asset_key: ['raw_incidentaddress']
+              description: "Raw NFIRS incident address data."
+        - name: structurefirecauses
+          description: "No description provided by NFIRS."
+          meta:
+            dagster:
+              asset_key: ['raw_structurefirecauses']
+              description: "Raw NFIRS structure fire cause data."
+        - name: wildlands
+          description: "Wildland fire incident."
+          meta:
+            dagster:
+              asset_key: ['raw_wildlands']
+              description: "Raw NFIRS wildland data."
