@@ -1,3 +1,3 @@
 # nfirs-data-pipeline
-## &#128203 Overview
+## :clipboard: Overview
 National fire Incident Reporting System (NFIRS) automated data pipeline and analysis.
