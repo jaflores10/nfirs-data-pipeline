@@ -1,0 +1,16 @@
+# File: profiles.yml
+
+nfirs_duckdb:
+  outputs:
+    dev:
+      type: duckdb
+      path: C:\Users\javier.flores\Desktop\Portfolio\NFIRS Data Pipeline and Analysis\nfirs_database\nfirs.duckdb
+      schema: nfirs
+      threads: 8
+
+    prod:
+      type: duckdb
+      path: C:\Users\javier.flores\Desktop\Portfolio\NFIRS Data Pipeline and Analysis\nfirs_database\nfirs.duckdb
+      threads: 8
+
+  target: dev
