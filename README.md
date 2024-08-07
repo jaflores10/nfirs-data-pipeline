@@ -25,6 +25,7 @@ The DuckDB data warehouse contains the below four schemas and relevant tables:
 
 ### Schema: nfirs_raw
 nfirs_raw contains the raw data obtained from the NFIRS website for all 19 datasets (flat files, '.txt'). Please note, all column data types for every table in nfirs_raw are VARCHAR.
+
 Tables:
 - nfirs_arson
 - nfirs_basicincident
@@ -33,6 +34,7 @@ Tables:
 
 ### Schema: nfirs_transformed
 nfirs_transformed contains all 19 tables with updated data types as specified in the [NFIRS Fire Data Analysis Guidelines and Issues](https://www.usfa.fema.gov/downloads/pdf/nfirs/nfirs_data_analysis_guidelines_issues.pdf). The naming format for this schema is 'nfirs_transformed__{raw table name}.'
+
 Tables:
 - nfirs_transformed__arson
 - nfirs_transformed__basicincident
