@@ -69,7 +69,7 @@ Tables:
 - nfirs_analysis__wildlands_ca_analysis
 
 ### dbt Data Transformations
-The dbt models are used to transform and clean the NFIRS data. The key transformations include changing data types and restructuring data to facilitate analysis and visualization.
+The dbt models are used to transform and clean the NFIRS data. Key transformations include changing data types and restructuring data to facilitate analysis and visualization.
 
 #### Key Models
 - Transformed models convert columns from VARCHAR to the correct data type as specified in the [NFIRS Fire Data Analysis Guidelines and Issues](https://www.usfa.fema.gov/downloads/pdf/nfirs/nfirs_data_analysis_guidelines_issues.pdf) and after manual review of the data.
@@ -80,15 +80,29 @@ The dbt models are used to transform and clean the NFIRS data. The key transform
   - nfirs_processed__incidents_wildlands: Joins the above incident data with wildland data to obtain wildfire related data
 - Analysis models select specified columns and filter the data to analyze and visualize fire incidents
     - nfires_analysis__code_count_analysis: Selects incident types and code descriptions across states, cities, and fire departments to analyze the most common incident types
-    - nfirs_analysis_muni_incidents_analysis: Selects incidents across date related (weekday, season, etc.) and address related (state, city, street, etc.) to analyze what locations have the most incidents
+    - nfirs_analysis_muni_incidents_analysis: Selects incidents across date related (weekday, season, etc.) and address related (state, city, street, etc.) fields to analyze what locations have the most incidents
     - nfirs_analysis_wildlands_ca_analysis: Selects California related wildland incident data to analyze wildfire incidents in the state
 
 ### Tableau Data Visualization
 The data is visualized using Tableau. You can view the interactive dashboards through the links below:
-- [CA Wildfires](https://public.tableau.com/app/profile/javier.flores5792/viz/NFIRSDataAnalysis-CAWildfires/CAWildfiresSummary).
+- [CA Wildfires](https://public.tableau.com/app/profile/javier.flores5792/viz/NFIRSDataAnalysis-CAWildfires/CAWildfiresSummary)
+
+Please note, due to Tableau Public data limitations, dashboards for code description analysis and municipal incident analysis are unavailable at the moment.
 
 ### Analysis Summary
-The analysis provides insights into fire incident patterns, what regions and states in the U.S. had the most incidents in 2022, and detail where most wildfires occurred in California
+The analysis provides insights into fire incident patterns, what regions and states in the U.S. had the most incidents in 2022, and details where most wildfires occurred in California and the types of conditions which caused those wildfires. Further details below:
+
+- U.S. Fire Incidents
+  - In 2022, the most fire incidents occurred in the Southeast of the U.S. This finding is somewhat surprising given how populated California is; however, aside from California and the Pacific Northwest much of the western U.S. is not densely populated (large states but smaller populations).
+- U.S. State and City Fire Incidents Summary
+  - Most fire incidents occured in December. This can be associated with people using heating equipment more often and them malfunctioning, cooking inside more often with large gatherings, candles and fireplaces being used more frequently, and Christmas trees.
+  - The 611 incident type code is most common. This represents when a fire unit was dispatched an cancelled en route (i.e., someone most likely inadvertently calling 911). 111 (building fire) is the next most frequent incident type. This makes sense given many fire incidents are occuring in December, the majority of which start indoors.
+- California Wildfires
+  - Unfortunately, the NFIRS data does not contain much quantitative nor qualitative data for wildfires. The majority of causes are marked as underdetermined and data for wildfire attributes such as acres burned, air temperatures, humidity, and fire danger rating were not provided to the NFIRS.
+  - There was an uptick in wildfires in March. March typically experiences high levels of precipitation (although 2022 was a low year in preciptation overall), so this was a small outlier.
+
+**Potential Further Analysis**
+The analysis provides a high-level summary of fire incidents throughout the U.S. Further analysis may expand to more years, identify seasonal trends with different types of fire incidents, and implement machine learning techniques to model when/where a fire may occur and how to best respond.
 
 ### Dagster Data Orchestration
 
