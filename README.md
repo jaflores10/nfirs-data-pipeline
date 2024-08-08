@@ -1,5 +1,5 @@
 # National Fire Incident Reporting System (NFIRS) Data Pipeline and Analysis
-## :clipboard: Overview
+## 📋 Overview
 The primary goal of the NFIRS data pipeline and analysis project is to implement efficient extract, load, transform (ELT) processes using an open-source modern data stack and to provide a comprehensive analysis on fire incidents throughout the U.S. in 2022. This project is designed to help professionals seeking to enhance their data ingestion and transformation workflows, ensuring complete and accurate data for analytical purposes.
 
 The following tools/technologies are used for data ingestion, warehousing, transformation, visualization, and orchestration:
@@ -28,12 +28,12 @@ The modules below are organized to maintain clear separation of ELT processes.
 ### Data Ingestion
 Handles the extraction and loading of NFIRS data linked above.
 
-**Location:** [python_scripts](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/python_scripts)
+**Location**: [python_scripts](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/python_scripts)
 
 ### DuckDB Data Warehouse
 The DuckDB data warehouse contains the below four schemas and relevant tables (tables in nfirs_transformed, nfirs_processed, and nfirs_analysis are created via dbt).
 
-**Location:** [nfirs_database](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/nfirs_database)
+**Location**: [nfirs_database](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/nfirs_database)
 
 #### Schema: nfirs_raw
 nfirs_raw contains the raw data obtained from the NFIRS website for all 19 datasets (flat files, '.txt' format). Please note, all column data types for every table in nfirs_raw are VARCHAR.
@@ -73,9 +73,9 @@ Tables:
 ### dbt Data Transformations
 The dbt models are used to transform and clean the NFIRS data. Key transformations include changing data types and restructuring data to facilitate analysis and visualization.
 
-**Location:** [nfirs_dbt](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/nfirs_dbt)
+**Location**: [nfirs_dbt](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/nfirs_dbt)
 
-**Key Files:**
+**Key Files**
 - `dbt_project.yml`: dbt project configuraion
 - `schema.yml`: specifies data loaded into nfirs_raw by the python scripts
 - `models/`: Contains dbt models for various stages of data transformation such as converting column data types to the correct data type as specified in the [NFIRS Fire Data Analysis Guidelines and Issues](https://www.usfa.fema.gov/downloads/pdf/nfirs/nfirs_data_analysis_guidelines_issues.pdf), joining tables together for further analysis, and selecting specific columns and filters to serve as data sources for Tableau.
@@ -104,7 +104,7 @@ The analysis provides a high-level summary of fire incidents throughout the U.S.
 ### Dagster Data Orchestration
 Dagster was integrated to orchestrate and manage the data pipelines for processing NFIRS data.
 
-**Location:** [nfirs_dagster](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/nfirs_dbt/nfirs_dagster/nfirs_dagster)
+**Location**: [nfirs_dagster](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/nfirs_dbt/nfirs_dagster/nfirs_dagster)
 
 **Key Files**
 - `definitions.py`: This file contains the core configuration for Dagster, defining the repository that includes assets, jobs, and schedules
@@ -117,24 +117,25 @@ Below is a DAG demonstrating how the assets are connected and them successfully 
 Ensure the following accounts and tools are set up befor beginning this project:
 
 #### Accounts
-- **GitHub:** For version control and collaboration.
+- **GitHub**: For version control and collaboration.
 
 #### Install Tools
 - **VS Code or other IDE**: Allows for easy code editing. [Download VS Code](https://code.visualstudio.com/download)
-- **Python:** [Download Python](https://www.python.org/downloads/)
-- **DuckDB:** [Download DuckDB](https://duckdb.org/docs/installation/?version=stable&environment=cli&platform=win&download_method=package_manager)
-- **dbt Core:** [Install dbt Core](https://github.com/dbt-labs/dbt-core)
-- **Tableau:** Users may use Tableau public for free. [Download Tableau Public](https://public.tableau.com/app/discover)
-- ** Dagster:** [Install Dagster](https://github.com/dagster-io/dagster)
+- **Python**: [Download Python](https://www.python.org/downloads/)
+- **DuckDB**: [Download DuckDB](https://duckdb.org/docs/installation/?version=stable&environment=cli&platform=win&download_method=package_manager)
+- **dbt Core**: [Install dbt Core](https://github.com/dbt-labs/dbt-core)
+- **Tableau**: Users may use Tableau public for free. [Download Tableau Public](https://public.tableau.com/app/discover)
+- **Dagster**: [Install Dagster](https://github.com/dagster-io/dagster)
 
 ### Project Starting Guide
 To get started with this project, follow these steps:
 
-1. **Clone the repository**: `git clone https://github.com/yourusername/your-repo.git`
-2. **Set up the environment**: Install the required dependencies using `pip install -r requirements.txt`.
-3. **Ingest the data**: Run the ingestion scripts to load data into DuckDB.
-4. **Run dbt models**: Execute dbt models to transform the data.
-5. **Visualize the data**: Access the Tableau dashboards to explore the visualizations and analyze data.
+1. **Clone the repository**: `git clone https://github.com/jaflores10/nfirs-data-pipeline/tree/main`
+2. **Create virtual environment**: `python -m venv env` `source env/bin/activate` `# On Windows: `env\Scripts\activate`
+3. **Set up the environment**: Install the required dependencies using `pip install -r requirements.txt`.
+4. **Ingest the data**: Run the ingestion scripts to load data into DuckDB.
+5. **Run dbt models**: Execute dbt models to transform the data.
+6. **Visualize the data**: Access the Tableau dashboards to explore the visualizations and analyze data.
 
 ## Contributing
 Contributions are welcome! Please submit a pull request or open an issue to discuss changes.
