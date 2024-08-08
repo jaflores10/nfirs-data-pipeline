@@ -16,6 +16,8 @@ The following tools/technologies are used for data ingestion, warehousing, trans
 
 NFIRS data may be obtained [here](https://www.fema.gov/about/openfema/data-sets/fema-usfa-nfirs-annual-data).
 
+Inspriration for this project was drawn from my time living in the mountains of northern California. Wildfires are something most east coasters do not experience regularly and moving to California was eye-opening in terms of learning how at-risk the state is with wildfires, how frequently they occur, and how desctructive wildfires are for millions of people in the state each year.
+
 ## ⛓️ Relation Diagram
 Below is the relation diagram of NFIRS data. The diagram allows an individual to understand how datasets link together. (Image courtesy of NFIRS):
 ![Relation Diagram](https://github.com/jaflores10/nfirs-data-pipeline/blob/main/nfirs_relation_diagram.JPG)
@@ -67,10 +69,26 @@ Tables:
 - nfirs_analysis__wildlands_ca_analysis
 
 ### dbt Data Transformations
+The dbt models are used to transform and clean the NFIRS data. The key transformations include changing data types and restructuring data to facilitate analysis and visualization.
 
+#### Key Models
+- Transformed models convert columns from VARCHAR to the correct data type as specified in the [NFIRS Fire Data Analysis Guidelines and Issues](https://www.usfa.fema.gov/downloads/pdf/nfirs/nfirs_data_analysis_guidelines_issues.pdf) and after manual review of the data.
+- Processed models join tables together to serve as the base data sets for analysis and visualization.
+  - nfirs_processed__incidents: Joins fire department description data, basic fire incident data, and detailed fire incident data together
+  - nfirs_processed__incidents_aid_casualty: Joins the above incident data with firefighter casualty data and civilian casualty data
+  - nfirs_processed__incidents_codelookup: Joins the above incident data with fire incident code data to gather code descriptions for incident types, actions taken, and fire suppression used
+  - nfirs_processed__incidents_wildlands: Joins the above incident data with wildland data to obtain wildfire related data
+- Analysis models select specified columns and filter the data to analyze and visualize fire incidents
+    - nfires_analysis__code_count_analysis: Selects incident types and code descriptions across states, cities, and fire departments to analyze the most common incident types
+    - nfirs_analysis_muni_incidents_analysis: Selects incidents across date related (weekday, season, etc.) and address related (state, city, street, etc.) to analyze what locations have the most incidents
+    - nfirs_analysis_wildlands_ca_analysis: Selects California related wildland incident data to analyze wildfire incidents in the state
 
 ### Tableau Data Visualization
+The data is visualized using Tableau. You can view the interactive dashboards through the links below:
+- [CA Wildfires](https://public.tableau.com/app/profile/javier.flores5792/viz/NFIRSDataAnalysis-CAWildfires/CAWildfiresSummary).
 
+### Analysis Summary
+The analysis provides insights into fire incident patterns, what regions and states in the U.S. had the most incidents in 2022, and detail where most wildfires occurred in California
 
 ### Dagster Data Orchestration
 
