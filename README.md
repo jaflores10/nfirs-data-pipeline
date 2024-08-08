@@ -28,12 +28,12 @@ The modules below are organized to maintain clear separation of ELT processes.
 ### Data Ingestion
 Handles the extraction and loading of NFIRS data linked above.
 
-**Location:**[python_scripts](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/python_scripts)
+**Location:** [python_scripts](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/python_scripts)
 
 ### DuckDB Data Warehouse Details
 The DuckDB data warehouse contains the below four schemas and relevant tables (tables in nfirs_transformed, nfirs_processed, and nfirs_analysis are created via dbt).
 
-**Location:**[nfirs_database](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/nfirs_database)
+**Location:** [nfirs_database](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/nfirs_database)
 
 #### Schema: nfirs_raw
 nfirs_raw contains the raw data obtained from the NFIRS website for all 19 datasets (flat files, '.txt' format). Please note, all column data types for every table in nfirs_raw are VARCHAR.
@@ -76,7 +76,7 @@ The dbt models are used to transform and clean the NFIRS data. Key transformatio
 **Location:** [nfirs_dbt]((https://github.com/jaflores10/nfirs-data-pipeline/tree/main/nfirs_dbt)
 
 **Key Files:**
-- dbt_project.yml: dbt project configuraion
+- 'dbt_project.yml': dbt project configuraion
 - schema.yml: specifies data loaded into nfirs_raw by the python scripts
 - models/: Contains dbt models for various stages of data transformation such as converting column data types to the correct data type as specified in the [NFIRS Fire Data Analysis Guidelines and Issues](https://www.usfa.fema.gov/downloads/pdf/nfirs/nfirs_data_analysis_guidelines_issues.pdf), joining tables together for further analysis, and selecting specific columns and filters to serve as data sources for Tableau.
 
