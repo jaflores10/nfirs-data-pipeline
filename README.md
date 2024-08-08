@@ -8,7 +8,7 @@ The following tools/technologies are used for data ingestion, warehousing, trans
 - Data warehouse
   - DuckDB 🦆
 - Data transformation
-  - dbt ♻️
+  - dbt (data build tool) ♻️
 - Data Visualization
   - Tableau 📊
 - Data Orchestration
@@ -28,10 +28,12 @@ The modules below are organized to maintain clear separation of ELT processes.
 ### Data Ingestion
 Handles the extraction and loading of NFIRS data linked above.
 
-[Python data extraction scripts](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/python_scripts).
+**Location:**[python_scripts](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/python_scripts)
 
 ### DuckDB Data Warehouse Details
-The DuckDB data warehouse contains the below four schemas and relevant tables (tables in nfirs_transformed, nfirs_processed, and nfirs_analysis are created via dbt):
+The DuckDB data warehouse contains the below four schemas and relevant tables (tables in nfirs_transformed, nfirs_processed, and nfirs_analysis are created via dbt).
+
+**Location:**[nfirs_database](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/nfirs_database)
 
 #### Schema: nfirs_raw
 nfirs_raw contains the raw data obtained from the NFIRS website for all 19 datasets (flat files, '.txt' format). Please note, all column data types for every table in nfirs_raw are VARCHAR.
@@ -71,17 +73,12 @@ Tables:
 ### dbt Data Transformations
 The dbt models are used to transform and clean the NFIRS data. Key transformations include changing data types and restructuring data to facilitate analysis and visualization.
 
-#### Key Models
-- Transformed models convert columns from VARCHAR to the correct data type as specified in the [NFIRS Fire Data Analysis Guidelines and Issues](https://www.usfa.fema.gov/downloads/pdf/nfirs/nfirs_data_analysis_guidelines_issues.pdf) and after manual review of the data.
-- Processed models join tables together to serve as the base data sets for analysis and visualization.
-  - nfirs_processed__incidents: Joins fire department description data, basic fire incident data, and detailed fire incident data together
-  - nfirs_processed__incidents_aid_casualty: Joins the above incident data with firefighter casualty data and civilian casualty data
-  - nfirs_processed__incidents_codelookup: Joins the above incident data with fire incident code data to gather code descriptions for incident types, actions taken, and fire suppression used
-  - nfirs_processed__incidents_wildlands: Joins the above incident data with wildland data to obtain wildfire related data
-- Analysis models select specified columns and filter the data to analyze and visualize fire incidents
-    - nfires_analysis__code_count_analysis: Selects incident types and code descriptions across states, cities, and fire departments to analyze the most common incident types
-    - nfirs_analysis_muni_incidents_analysis: Selects incidents across date related (weekday, season, etc.) and address related (state, city, street, etc.) fields to analyze what locations have the most incidents
-    - nfirs_analysis_wildlands_ca_analysis: Selects California related wildland incident data to analyze wildfire incidents in the state
+**Location:** [nfirs_dbt]((https://github.com/jaflores10/nfirs-data-pipeline/tree/main/nfirs_dbt)
+
+**Key Files:**
+- dbt_project.yml: dbt project configuraion
+- schema.yml: specifies data loaded into nfirs_raw by the python scripts
+- models/: Contains dbt models for various stages of data transformation such as converting column data types to the correct data type as specified in the [NFIRS Fire Data Analysis Guidelines and Issues](https://www.usfa.fema.gov/downloads/pdf/nfirs/nfirs_data_analysis_guidelines_issues.pdf), joining tables together for further analysis, and selecting specific columns and filters to serve as data sources for Tableau.
 
 ### Tableau Data Visualization
 The data is visualized using Tableau. You can view the interactive dashboards through the links below:
