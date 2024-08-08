@@ -73,18 +73,18 @@ Tables:
 ### dbt Data Transformations
 The dbt models are used to transform and clean the NFIRS data. Key transformations include changing data types and restructuring data to facilitate analysis and visualization.
 
-**Location:** [nfirs_dbt]((https://github.com/jaflores10/nfirs-data-pipeline/tree/main/nfirs_dbt)
+**Location:** [nfirs_dbt](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/nfirs_dbt)
 
 **Key Files:**
-- 'dbt_project.yml': dbt project configuraion
-- schema.yml: specifies data loaded into nfirs_raw by the python scripts
-- models/: Contains dbt models for various stages of data transformation such as converting column data types to the correct data type as specified in the [NFIRS Fire Data Analysis Guidelines and Issues](https://www.usfa.fema.gov/downloads/pdf/nfirs/nfirs_data_analysis_guidelines_issues.pdf), joining tables together for further analysis, and selecting specific columns and filters to serve as data sources for Tableau.
+- `dbt_project.yml`: dbt project configuraion
+- `schema.yml`: specifies data loaded into nfirs_raw by the python scripts
+- `models/`: Contains dbt models for various stages of data transformation such as converting column data types to the correct data type as specified in the [NFIRS Fire Data Analysis Guidelines and Issues](https://www.usfa.fema.gov/downloads/pdf/nfirs/nfirs_data_analysis_guidelines_issues.pdf), joining tables together for further analysis, and selecting specific columns and filters to serve as data sources for Tableau.
 
 ### Tableau Data Visualization
 The data is visualized using Tableau. You can view the interactive dashboards through the links below:
 - [CA Wildfires](https://public.tableau.com/app/profile/javier.flores5792/viz/NFIRSDataAnalysis-CAWildfires/CAWildfiresSummary)
 
-Please note, due to Tableau Public data limitations, dashboards for code description analysis and municipal incident analysis are unavailable at the moment.
+Please note, due to Tableau Public data limitations, dashboards for the code description analysis and the municipal incident analysis are unavailable at the moment.
 
 ### Analysis Summary
 The analysis provides insights into fire incident patterns, what regions and states in the U.S. had the most incidents in 2022, and details where most wildfires occurred in California and the types of conditions which caused those wildfires. Further details below:
@@ -102,4 +102,12 @@ The analysis provides insights into fire incident patterns, what regions and sta
 The analysis provides a high-level summary of fire incidents throughout the U.S. Further analysis may expand to more years, identify seasonal trends with different types of fire incidents, and implement machine learning techniques to model when/where a fire may occur and how to best respond.
 
 ### Dagster Data Orchestration
+Dagster was integrated to orchestrate and manage the data pipelines for processing NFIRS data.
 
+**Location:** [nfirs_dagster](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/nfirs_dbt/nfirs_dagster/nfirs_dagster)
+
+**Key Files**
+- `definitions.py`: This file contains the core configuration for Dagster, defining the repository that includes assets, jobs, and schedules
+- `assets.py`: This file is used to define data assets (python scripts, dbt models, etc.).
+
+Below is a DAG demonstrating how the assets are connected and them successfully materializing:
