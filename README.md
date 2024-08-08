@@ -30,7 +30,7 @@ Handles the extraction and loading of NFIRS data linked above.
 
 **Location:** [python_scripts](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/python_scripts)
 
-### DuckDB Data Warehouse Details
+### DuckDB Data Warehouse
 The DuckDB data warehouse contains the below four schemas and relevant tables (tables in nfirs_transformed, nfirs_processed, and nfirs_analysis are created via dbt).
 
 **Location:** [nfirs_database](https://github.com/jaflores10/nfirs-data-pipeline/tree/main/nfirs_database)
@@ -111,3 +111,38 @@ Dagster was integrated to orchestrate and manage the data pipelines for processi
 - `assets.py`: This file is used to define data assets (python scripts, dbt models, etc.).
 
 Below is a DAG demonstrating how the assets are connected and them successfully materializing:
+
+## 🚀 Getting Started
+### Prerequisites
+Ensure the following accounts and tools are set up befor beginning this project:
+
+#### Accounts
+- **GitHub:** For version control and collaboration.
+
+#### Install Tools
+- **VS Code or other IDE**: Allows for easy code editing. [Download VS Code](https://code.visualstudio.com/download)
+- **Python:** [Download Python](https://www.python.org/downloads/)
+- **DuckDB:** [Download DuckDB](https://duckdb.org/docs/installation/?version=stable&environment=cli&platform=win&download_method=package_manager)
+- **dbt Core:** [Install dbt Core](https://github.com/dbt-labs/dbt-core)
+- **Tableau:** Users may use Tableau public for free. [Download Tableau Public](https://public.tableau.com/app/discover)
+- ** Dagster:** [Install Dagster](https://github.com/dagster-io/dagster)
+
+### Project Starting Guide
+To get started with this project, follow these steps:
+
+1. **Clone the repository**: `git clone https://github.com/yourusername/your-repo.git`
+2. **Set up the environment**: Install the required dependencies using `pip install -r requirements.txt`.
+3. **Ingest the data**: Run the ingestion scripts to load data into DuckDB.
+4. **Run dbt models**: Execute dbt models to transform the data.
+5. **Visualize the data**: Access the Tableau dashboards to explore the visualizations and analyze data.
+
+## Contributing
+Contributions are welcome! Please submit a pull request or open an issue to discuss changes.
+
+## License
+This project is licensed under the MIT License.
+
+## Credits
+- **Data Source**: NFIRS
+- **Image**: Courtesy of NFIRS
+- **Tools and Technologies**: Python, DuckDB, dbt, Tableau, Dagster
