@@ -110,7 +110,10 @@ Dagster was integrated to orchestrate and manage the data pipelines for processi
 - `definitions.py`: This file contains the core configuration for Dagster, defining the repository that includes assets, jobs, and schedules
 - `assets.py`: This file is used to define data assets (python scripts, dbt models, etc.)
 
-Below is a DAG demonstrating how the assets are connected and them successfully materializing:
+Below is a DAG demonstrating how the assets are connected and them successfully materializing. The zoomed out DAG demonstrates all assets materializing. The zoomed in DAG shows what each asset is.
+![NFIRS Dagster DAG - Zoomed Out](https://github.com/jaflores10/nfirs-data-pipeline/blob/main/nfirs_dbt/nfirs_dagster/NFIRS%20Dagster%20Dag_Zoomed%20Out.svg)
+
+![nFIRS Dagster DAG - Zoomed In](https://github.com/jaflores10/nfirs-data-pipeline/blob/main/nfirs_dbt/nfirs_dagster/NFIRS%20Dagster%20Dag_Zoomed%20In.svg)
 
 ## 🚀 Getting Started
 ### Prerequisites
