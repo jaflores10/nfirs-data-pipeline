@@ -54,7 +54,7 @@ Tables:
 - etc.
 
 #### Schema: nfirs_processed
-nfirs_processed contains four tables which can be used to further analyze fire incidents, aid given during an incident, casualties during an incident, relevant code descriptions for incidents, and wildfire details. The naming format for this schema is 'nfirs_processed__incidents_.'
+nfirs_processed contains four tables which can be used to further analyze fire incidents, aid given during incidents, casualties from incidents, relevant code descriptions for incidents, and wildfire details. The naming format for this schema is 'nfirs_processed__incidents_.'
 
 Tables:
 - nfirs_processed__incidents
@@ -63,7 +63,7 @@ Tables:
 - nfirs_processed__incidents_wildlands
 
 #### Schema: nfirs_analysis
-nfirs_analysis contains three tables derived from data in nfirs_processed. These tables serve as the data sources for analysis and visualization in Tableau. The naming format for this schema is 'nfirs_analysis__.'
+nfirs_analysis contains three tables derived from nfirs_processed. These tables serve as the data sources for analysis and visualization in Tableau. The naming format for this schema is 'nfirs_analysis__.'
 
 Tables:
 - nfirs_analysis__code_count_analysis
@@ -84,7 +84,7 @@ The dbt models are used to clean and transform the NFIRS data. Key transformatio
 The data is visualized using Tableau. You can view the interactive dashboards through the links below:
 - [CA Wildfires](https://public.tableau.com/app/profile/javier.flores5792/viz/NFIRSDataAnalysis-CAWildfires/CAWildfiresSummary)
 
-Please note, due to Tableau Public data limitations, dashboards for the code description analysis and the municipal incident analysis are unavailable at the moment.
+Please note, due to Tableau Public data limitations, dashboards for the code descriptions analysis and the municipal incidents analysis are unavailable at this time.
 
 ### Analysis Summary
 The analysis provides insights into fire incident patterns, what regions and states in the U.S. had the most incidents in 2022, and details where most wildfires occurred in California and the types of conditions which caused those wildfires. Further details below:
@@ -92,14 +92,14 @@ The analysis provides insights into fire incident patterns, what regions and sta
 - U.S. Fire Incidents
   - In 2022, the most fire incidents occurred in the Southeast of the U.S. This finding is somewhat surprising given how populated California is; however, aside from California and the Pacific Northwest much of the western U.S. is not densely populated.
 - U.S. State and City Fire Incidents Summary
-  - Most fire incidents occured in December. Further research indicates this can be associated with people using heating equipment more often and the equipment malfunctioning, cooking inside more often with large gatherings, candles and fireplaces being used frequently, and Christmas trees.
-  - The 611 incident type code is most common. This represents when a fire unit was dispatched and cancelled en route (i.e., someone most likely inadvertently calling 911). 111 (building fire) is the next most frequent incident type. This makes sense given many fire incidents are occuring in December, the majority of which start indoors. Further analysis may filter the 611 code out as typically nothing comes of it.
+  - Most fire incidents occured in December. Further research indicates this can be associated with people using heating equipment more often and the equipment malfunctioning, cooking inside more often due to large gatherings, candles and fireplaces being used frequently, and Christmas trees.
+  - The 611 incident type code is most common. This represents when a fire unit was dispatched and cancelled en route (i.e., someone most likely inadvertently calling 911). 111 (building fire) is the next most frequent incident type. This makes sense given many fire incidents are occuring in December, the majority of which start indoors. Further analysis may filter out the 611 code as, typically, nothing comes of it.
 - California Wildfires
   - Unfortunately, the NFIRS data does not contain much quantitative nor qualitative data for wildfires. The majority of causes are marked as underdetermined and data for wildfire attributes such as acres burned, air temperature, humidity, and fire danger rating were not provided to the NFIRS.
   - There was an uptick in wildfires in March. March typically experiences high levels of precipitation (although 2022 experienced little precipitation overall), so this was a small outlier.
 
 **Potential Further Analysis**
-The analysis provides a high-level summary of fire incidents throughout the U.S. Further analysis may expand to more years, identify seasonal trends with different types of fire incidents, and implement machine learning techniques to model when/where a fire may occur and how to best respond.
+The analysis provides a high-level summary of fire incidents throughout the U.S. Further analysis may expand to more years, identify seasonal trends with different types of fire incidents, and implement machine learning techniques to model how to best respond to an incident.
 
 ### Dagster Data Orchestration
 Dagster was integrated to orchestrate and manage the data pipelines for processing NFIRS data.
@@ -110,7 +110,7 @@ Dagster was integrated to orchestrate and manage the data pipelines for processi
 - `definitions.py`: This file contains the core configuration for Dagster, defining the repository that includes assets, jobs, and schedules
 - `assets.py`: This file is used to define data assets (python scripts, dbt models, etc.)
 
-Below is a DAG demonstrating how the assets are connected and them successfully materializing. The zoomed out DAG demonstrates all assets materializing. The zoomed in DAG shows what each asset is.
+Below is a DAG demonstrating how the assets are connected and them successfully materializing. The zoomed out DAG demonstrates all assets materializing. The zoomed in DAG shows what kind of data asset each is (i.e., python script, dbt model, etc.).
 ![NFIRS Dagster DAG - Zoomed Out](https://github.com/jaflores10/nfirs-data-pipeline/blob/main/nfirs_dbt/nfirs_dagster/NFIRS%20Dagster%20Dag_Zoomed%20Out.svg)
 
 ![nFIRS Dagster DAG - Zoomed In](https://github.com/jaflores10/nfirs-data-pipeline/blob/main/nfirs_dbt/nfirs_dagster/NFIRS%20Dagster%20Dag_Zoomed%20In.svg)
@@ -127,7 +127,7 @@ Ensure the following accounts and tools are set up before beginning this project
 - **Python**: [Download Python](https://www.python.org/downloads/)
 - **DuckDB**: [Download DuckDB](https://duckdb.org/docs/installation/?version=stable&environment=cli&platform=win&download_method=package_manager)
 - **dbt Core**: [Install dbt Core](https://github.com/dbt-labs/dbt-core)
-- **Tableau**: Users may use Tableau public for free. [Download Tableau Public](https://public.tableau.com/app/discover)
+- **Tableau**: Users may use Tableau Public for free. [Download Tableau Public](https://public.tableau.com/app/discover)
 - **Dagster**: [Install Dagster](https://github.com/dagster-io/dagster)
 
 ### Project Starting Guide
