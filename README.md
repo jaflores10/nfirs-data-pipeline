@@ -23,7 +23,7 @@ Below is the relation diagram of NFIRS data. The diagram allows an individual to
 ![Relation Diagram](https://github.com/jaflores10/nfirs-data-pipeline/blob/main/nfirs_relation_diagram.JPG)
 
 ## 💠 Modules
-The modules below are organized to maintain clear separation of ELT processes.
+The modules below are organized to maintain clear separation of ELT components.
 
 ### Data Ingestion
 Handles the extraction and loading of NFIRS data linked above.
